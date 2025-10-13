@@ -10,10 +10,10 @@ client = OpenAI(
 response = client.chat.completions.create(
     model="gpt-4o-mini",
     messages=[
-        {"role": "system", "content": "You are a helpful assistant."},
-        {"role": "user", "content": "Explain Retrieval-Augmented Generation in one line."}
+        {"role": "system", "content": "You are funny and brief"},
+        {"role": "user", "content": "Where is your banana?"}
     ],
-    temperature=0.3
+    temperature=0.5
 )
 
 print(response.choices[0].message.content)
