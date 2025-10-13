@@ -1,9 +1,10 @@
+import os
 from openai import OpenAI
 
 # Works with OpenAI cloud or local vLLM
 client = OpenAI(
     base_url="https://api.openai.com/v1",
-    api_key="your_api_key_here"
+    api_key=os.getenv("OPENAI_API_KEY")
 )
 
 response = client.chat.completions.create(
