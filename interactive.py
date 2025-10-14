@@ -1,15 +1,15 @@
 from openai import OpenAI
 import os
 
-# Create client (you’ll export your key later or load from .env)
+# Create client
 client = OpenAI(
     base_url="https://api.openai.com/v1",
-    api_key=os.getenv("OPENAI_API_KEY", "your_api_key_here")
+    api_key=os.getenv("OPENAI_API_KEY")
 )
 
 # System message defines tone and rules
 messages = [
-    {"role": "system", "content": "You are a helpful and concise AI assistant."}
+    {"role": "system", "content": "be helpful and concise"}
 ]
 
 print("Type 'exit' to quit.\n")
@@ -27,7 +27,7 @@ while True:
     response = client.chat.completions.create(
         model="gpt-4o-mini",
         messages=messages,
-        temperature=0.3,
+        temperature=1.0,
     )
 
     # Extract model reply
