@@ -2,7 +2,10 @@ from openai import OpenAI
 import os
 import json
 
-client = OpenAI()
+client = OpenAI(
+    base_url="https://api.openai.com/v1",
+    api_key=os.getenv("OPENAI_API_KEY")
+)
 
 system_prompt = """
 You are a precise text analyst. 
