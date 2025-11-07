@@ -1,0 +1,1 @@
+The OpenAI API provides access to models like GPT-4o and GPT-4o-mini. They can generate text, call functions, and even handle images or audio.
