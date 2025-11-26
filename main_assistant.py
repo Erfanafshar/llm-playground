@@ -12,7 +12,21 @@ def get_web_data(topic):
 
 # --- Tools regsigery -------
 tools = [
-    
+    "type: function",
+    "function": {
+        "name": "get rag"
+        "description": "get file info"
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "city": {
+                    "type": "string",
+                    "description": "the city is big"
+                },
+                "required": ["city"]
+            }
+        }
+    }
 ]
 
 def run():
@@ -34,8 +48,11 @@ def run():
         response = client.chat.completions.create(
             model="gpt-4o-mini",
             messages = messages,
+            tools = tools,
             temperature = 0.5
         )
+
+        messages.append("role": "assistant", "content": response)
 
         print(f"Assistant: {response.choices[0].message.content}")
 
